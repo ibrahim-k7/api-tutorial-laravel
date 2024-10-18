@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::group(['middleware' => 'api'],function(){
-    Route::get('get-cat', [CategoriesController::class, 'index']);
+Route::group(['middleware' => ['api','checkPassword']],function(){
+    Route::post('get-cat', [CategoriesController::class, 'index']);
 });
